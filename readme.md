@@ -73,8 +73,8 @@ The code will automatically identify the classes based on the subdirectory names
 - `--num-epochs`: Number of training epochs (default: 100)
 - `--model`: Type of model to use (default: 'densenet3d')
 - `--num-workers`: Number of workers for dataloaders (default: 4)
-- `--loss`: Loss function to use (choices: ['bce', 'mse', 'focal'], default: 'bce')
-- `--optimizer`: Optimizer to use (choices: ['adam', 'sgd'], default: 'adam')
+- `--loss`: Loss function to use, default: 'bce')
+- `--optimizer`: Optimizer to use, default: 'adam')
 - `--train-path`: Path to the training data
 - `--validation-path`: Path to the validation data
 - `--device`: Device to use for training (default: 'cuda')
