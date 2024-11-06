@@ -25,7 +25,7 @@ if __name__ == "__main__":
     parser.add_argument('--batch-size', type=int, default=16, help='Batch size for dataloaders.')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate.')
     parser.add_argument('--num-epochs', type=int, default=100, help='Number of training epochs.')
-    parser.add_argument('--model', type=str, default='cnn3d', help='Type of model to use.')
+    parser.add_argument('--model', type=str, default='densenet3d', help='Type of model to use.')
     parser.add_argument('--num-workers', type=int, default=4, help='Number of workers for dataloaders.')
     parser.add_argument('--loss', type=str, default='bce', choices=['bce', 'mse', 'focal'], help='Loss function to use.')
     parser.add_argument('--optimizer', type=str, default='adam', choices=['adam', 'sgd'], help='Optimizer to use.')

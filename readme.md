@@ -71,7 +71,7 @@ The code will automatically identify the classes based on the subdirectory names
 - `--batch-size`: Batch size for dataloaders (default: 16)
 - `--lr`: Learning rate (default: 0.001)
 - `--num-epochs`: Number of training epochs (default: 100)
-- `--model`: Type of model to use (default: 'cnn3d')
+- `--model`: Type of model to use (default: 'densenet3d')
 - `--num-workers`: Number of workers for dataloaders (default: 4)
 - `--loss`: Loss function to use (choices: ['bce', 'mse', 'focal'], default: 'bce')
 - `--optimizer`: Optimizer to use (choices: ['adam', 'sgd'], default: 'adam')
