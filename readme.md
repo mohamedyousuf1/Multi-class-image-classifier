@@ -1,4 +1,4 @@
-# Polyp Shape Classification using CNN Models in Pytorch
+# Multi class image Classification using CNN Models in Pytorch
 
 This project implements a polyp shape classification system using various CNN models. The code is designed to automatically identify classes based on the folder structure of the dataset and train a model to classify images into these classes. The assigned label for each class will be generated in classes.json file inside the output file
 
