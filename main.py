@@ -5,11 +5,17 @@ import datetime
 import argparse
 import matplotlib.pyplot as plt
 import torch.multiprocessing as mp
-
+import json
 from Dataset import *
 from Train_val_func import *
 from Models import *
-    
+
+
+# Function to save the arguments in a json file
+def save_args(args, output_dir):
+    args_dict = vars(args) if hasattr(args, '__dict__') else args
+    with open(f'{output_dir}/args.json', 'w') as f:
+        json.dump(args_dict, f, indent=4)
 
 if __name__ == "__main__":
     # Set the multiprocessing start method to 'spawn'
@@ -115,7 +121,14 @@ if __name__ == "__main__":
     # Create csv file to store the results
     results_file = open(f"{folder_name}/results.csv", "w")
     results_file.write("epoch,train_loss,val_loss_balanced,val_acc_balanced,val_recall_balanced,val_precision_balanced,val_f1_balanced\n")
-    
+
+    # Save the arguments in the results folder
+    save_args(args, folder_name)
+
+
+    # export classes names and label in json file
+    with open(f"{folder_name}/classes.json", "w") as f:
+        json.dump(dataset_train.get_class_to_idx(), f)
     # Lists to store metrics for plotting
     train_losses = []
     train_accuracies = []
