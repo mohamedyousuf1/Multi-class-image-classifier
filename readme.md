@@ -16,7 +16,7 @@ This project implements a polyp shape classification system using various CNN mo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/polyp-shape-classification.git
+   git clone https://github.com/mohamedyousuf1/Multi-class-image-classifier.git
    cd polyp-shape-classification
 
 2. Create a virtual environment and activate it:
