@@ -60,23 +60,23 @@ if __name__ == "__main__":
         model = torch.load(args.resume)
     else:
         model_dict = {
-            # 'cnn3d': CNN3DClassifier,
+            'cnn3d': CNN3DClassifier,
             'densenet3d': DenseNet3DClassifier,
-            # 'resnet3d': ResNet3DClassifier,
-            # 'attention': ZoomIn3DCNN,
-            # 'densenet_att': DenseNet3DClassifierWithSE,
-            # 'mobilenet': MobileNet3DClassifier,
-            # 'resnext': ResNeXt3DClassifier,
-            # 'wide_resnet': WideResNet3DClassifier,
-            # 'shufflenet': ShuffleNet3DClassifier,
-            # 'retinanet': EfficientNet3DClassifier,
-            # 'inception': Inception3DClassifier,
-            # 'vit': ViT3DClassifier,
-            # 'mobilenetv3': MobileNetV3,
-            # 'sufflenetv2':ShuffleNetv2,
+            'resnet3d': ResNet3DClassifier,
+            'attention': ZoomIn3DCNN,
+            'densenet_att': DenseNet3DClassifierWithSE,
+            'mobilenet': MobileNet3DClassifier,
+            'resnext': ResNeXt3DClassifier,
+            'wide_resnet': WideResNet3DClassifier,
+            'shufflenet': ShuffleNet3DClassifier,
+            'retinanet': EfficientNet3DClassifier,
+            'inception': Inception3DClassifier,
+            'vit': ViT3DClassifier,
+            'mobilenetv3': MobileNetV3,
+            'sufflenetv2':ShuffleNetv2,
             'MVN_slices': MultiChannelModel,
-            # 'MVN_slices_v2': MultiChannelModel_V2,
-            # 'SENet3D': SENet2DClassifier,
+            'MVN_slices_v2': MultiChannelModel_V2,
+            'SENet3D': SENet2DClassifier,
         }
 
         # Select the model class based on the argument
@@ -202,6 +202,9 @@ if __name__ == "__main__":
         val_precisions_balanced.append(val_precision_balanced)
         val_f1s_balanced.append(val_f1_balanced)
 
+        args_list = vars(args)
+        args_list = {k: v for k, v in args_list.items() if k not in ['device', 'validation_path', 'num_epochs', 'num_workers', 'transform', 'train_path','output_dir','resume']}
+             
         epochs = list(range(0, epoch + 1))
 
         # Plot metrics
@@ -225,6 +228,6 @@ if __name__ == "__main__":
         for ax in axs.flat:
             ax.set(xlabel='Epochs', ylabel='Metrics')
             ax.legend()
-        # fig.text(0.01, 0.01, json.dumps(args), fontsize=10, ha='left', wrap=True)
+        fig.text(0.01, 0.01, json.dumps(args_list), fontsize=10, ha='left', wrap=True)
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.savefig(f'{folder_name}/metrics_calid_vs_train.png')
